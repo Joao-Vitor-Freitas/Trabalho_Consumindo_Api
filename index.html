@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5f5">
+    <title>Pokédex — PokéAPI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Cabeçalho com a identidade visual e a indicação da fonte dos dados. -->
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Pokédex, início">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span>Pokédex<span class="brand-period">.</span></span>
+      </a>
+      <span class="api-label"><span class="status-dot" aria-hidden="true"></span>Dados da PokéAPI</span>
+    </header>
+
+    <main>
+      <!-- Apresentação e formulário que inicia buscas por nome ou número. -->
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">EXPLORE O MUNDO POKÉMON</p>
+        <h1 id="page-title">Encontre seu próximo <span>Pokémon.</span></h1>
+        <p class="intro-copy">Pesquise por nome ou número e descubra informações sobre cada Pokémon.</p>
+
+        <form class="search-form" id="search-form" role="search">
+          <label class="visually-hidden" for="search-input">Nome ou número do Pokémon</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input
+            id="search-input"
+            name="pokemon"
+            type="search"
+            placeholder="Ex.: pikachu ou 25"
+            autocomplete="off"
+            required
+          >
+          <button class="search-button" type="submit">Buscar</button>
+        </form>
+      </section>
+
+      <!-- Área atualizada pelo JavaScript com a coleção ou o resultado da busca. -->
+      <section class="collection" aria-labelledby="collection-title">
+        <div class="collection-heading">
+          <div>
+            <p class="eyebrow">SUA COLEÇÃO</p>
+            <h2 id="collection-title">Pokémon <span id="collection-count"></span></h2>
+          </div>
+          <button class="text-button" id="reset-button" type="button" hidden>Ver todos</button>
+        </div>
+
+        <!-- Região acessível para mensagens de carregamento, sucesso e erro. -->
+        <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+        <div class="pokemon-grid" id="pokemon-grid" aria-busy="false"></div>
+        <button class="load-more-button" id="load-more-button" type="button">Carregar mais Pokémon</button>
+      </section>
+    </main>
+
+    <!-- Créditos e link para a documentação oficial da API. -->
+    <footer>
+      <p>Feito com dados da <a href="https://pokeapi.co/docs/v2" target="_blank" rel="noreferrer">PokéAPI</a>.</p>
+    </footer>
+  </body>
+</html>
